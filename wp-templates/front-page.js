@@ -64,7 +64,7 @@ Component.query = gql`
     $headerLocation: MenuLocationEnum
     $footerLocation: MenuLocationEnum
   ) {
-    posts(first: 4) {
+    posts(first: 7) {
       nodes {
         title
         excerpt
