@@ -64,6 +64,19 @@ Component.query = gql`
     $headerLocation: MenuLocationEnum
     $footerLocation: MenuLocationEnum
   ) {
+    posts(first: 4) {
+      nodes {
+        title
+        excerpt
+        uri
+        categories {
+          nodes {
+            name
+            uri
+          }
+        }
+      }
+    }
     generalSettings {
       ...BlogInfoFragment
     }
@@ -75,19 +88,6 @@ Component.query = gql`
     footerMenuItems: menuItems(where: { location: $footerLocation }) {
       nodes {
         ...NavigationMenuItemFragment
-      }
-    }
-    posts(first: 10) {
-      nodes {
-        title
-        excerpt
-        uri
-        categories {
-          nodes {
-            name
-            uri
-          }
-        }
       }
     }
   }
